@@ -1,11 +1,11 @@
 // Excerise 1
 for index in 1...20{
-    print(index)
+    print("The number is \(index)")
 }
 
 // Excerise 2
 for index in 1...20{
-    if index % 2 != 0{print(index)}
+    if index % 2 != 0{print("The odd number is \(index)")}
 }
 
 // Excerise 3
@@ -28,9 +28,9 @@ sayIt(5);
 // Excerise 4
 func result(mark: Int)-> String {
     
-    if mark > 50{
+    if mark > 50 {
         return "Pass"
-    }else{
+    } else {
         return "Fail";
     }
     
