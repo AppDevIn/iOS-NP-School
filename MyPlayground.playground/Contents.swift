@@ -44,8 +44,6 @@ print(result(mark: 100))
 
 func generate10Ran() -> [Int]{
     var arr: [Int] = [];
-    
-    
     for _ in 1...10{
         arr.append(Int.random(in: 1...100))
     }
@@ -55,14 +53,28 @@ func generate10Ran() -> [Int]{
 }
 
 func findMax(n: [Int])->Int {
-    return n.max()!;
+    var max: Int = n[0]
+    for value in n[1..<n.count]{
+        if value > max{
+            max = value
+        }
+    }
+    
+    return max
 }
 
 findMax(n: generate10Ran())
 
 //Excerise 6
 func findMin(n: [Int])->Int {
-    return n.min()!;
+    var min: Int = n[0]
+    for value in n[1..<n.count]{
+        if value < min{
+            min = value
+        }
+    }
+    
+    return min
 }
 
 findMin(n: generate10Ran())
