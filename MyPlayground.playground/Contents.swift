@@ -28,11 +28,11 @@ sayIt(5);
 // Excerise 4
 func result(mark: Int)-> String {
     
-    if mark > 50 {
+    if mark >= 50 {
         return "Pass"
-    } else {
-        return "Fail";
     }
+    return "Fail";
+    
     
 }
 
