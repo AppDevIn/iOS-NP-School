@@ -80,19 +80,10 @@ func findMin(n: [Int])->Int {
 findMin(n: generate10Ran())
 
 //Excerise 7
-func sum(_ n:[Int]) -> Int{
-    var total: Int = 0;
-    
-    for items in n {
-        total += items;
-    }
-    
-    return total;
-}
 
-func findAvg(n:[Int]) -> Int{
-    
-    return sum(n)/n.count
+func findAvg(n:[Int]) -> Double{
+    print(n)
+    return Double(n.reduce(0, +))/Double(n.count)
 }
 
 findAvg(n: generate10Ran())
