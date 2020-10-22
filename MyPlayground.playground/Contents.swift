@@ -80,9 +80,7 @@ func findMin(n: [Int])->Int {
 findMin(n: generate10Ran())
 
 //Excerise 7
-
 func findAvg(n:[Int]) -> Double{
-    print(n)
     return Double(n.reduce(0, +))/Double(n.count)
 }
 
