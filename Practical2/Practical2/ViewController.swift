@@ -8,19 +8,23 @@
 import UIKit
 
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    var friendsList = [Friend]()
+    let cellReuseIdentifier = "cell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var friendsList = [Friend]()
-
-        friendsList.append(Friend(firstName: "Jin", lastName: "Mori", age: 1000))
-        friendsList.append(Friend(firstName: "Dawei", lastName: "Han", age: 19))
-        friendsList.append(Friend(firstName: "Mira", lastName: "Yoo", age: 19))
-        friendsList.append(Friend(firstName: "Quan Sheng", lastName: "Lee", age: 20))
-        friendsList.append(Friend(firstName: "Auther", lastName: "Pendragon", age: 32))
+        
+        friendsList.append(Friend(firstName: "Jin", lastName: "Mori", age: 1000, description: "GOH"))
+        friendsList.append(Friend(firstName: "Dawei", lastName: "Han", age: 19, description: "GOH"))
+        friendsList.append(Friend(firstName: "Mira", lastName: "Yoo", age: 19, description: "GOH"))
+        friendsList.append(Friend(firstName: "Quan Sheng", lastName: "Lee", age: 20, description: "TRY TO BE IN GOH"))
+        friendsList.append(Friend(firstName: "Auther", lastName: "Pendragon", age: 32, description: "King of England"))
         
         
         displayAll(friendsList)
@@ -29,16 +33,22 @@ class ViewController: UIViewController {
         print(findAverageAge(friendsList))
         
         
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
     }
-
+    
     func displayAll(_ friendsList:[Friend]){
         for friend in friendsList {
-            print(friend.description)
+            print(friend.toString)
         }
     }
     
     func displayFriendsUnder20(_ friendsList:[Friend]) {
-        displayAll(friendsList.filter { $0.age < 20})
+        displayAll(friendsList.filter { $0.age < 20}) 
     }
     
     func findAverageAge(_ friendsList:[Friend])->Double {
@@ -48,6 +58,25 @@ class ViewController: UIViewController {
         }
         return Double(total) / Double(friendsList.count)
     }
-
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.friendsList.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+        
+        
+        cell.textLabel?.text = self.friendsList[indexPath.row].toString
+        
+        return cell
+    }
+    
+    
 }
 
