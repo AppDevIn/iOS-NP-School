@@ -17,16 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mx7-zy-FYd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TUF-Y5-GVZ">
+                                <rect key="frame" x="0.0" y="820" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="All"/>
+                                <connections>
+                                    <action selector="displayAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="drq-MV-SmD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="De3-wI-Uj5">
+                                <rect key="frame" x="213" y="820" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Under 20"/>
+                                <connections>
+                                    <action selector="under20Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fAV-m3-LRP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mx7-zy-FYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="78L-qh-IVR"/>
-                            <constraint firstAttribute="bottom" secondItem="mx7-zy-FYd" secondAttribute="bottom" id="FHh-6W-RQg"/>
                             <constraint firstItem="mx7-zy-FYd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RcJ-hu-Cbw"/>
+                            <constraint firstItem="TUF-Y5-GVZ" firstAttribute="top" secondItem="mx7-zy-FYd" secondAttribute="bottom" constant="24" id="X0C-17-riQ"/>
                             <constraint firstAttribute="trailing" secondItem="mx7-zy-FYd" secondAttribute="trailing" id="eqs-tk-IiX"/>
                         </constraints>
                     </view>

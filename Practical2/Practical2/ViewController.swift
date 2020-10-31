@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var friendsList = [Friend]()
     let cellReuseIdentifier = "cell"
+    var isAll:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +33,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         displayFriendsUnder20(friendsList)
         print(findAverageAge(friendsList))
         
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        
+    }
+    @IBAction func under20Pressed(_ sender: Any) {
+        
+        isAll = false
+        tableView.reloadData()
+    }
+    
+    @IBAction func displayAll(_ sender: Any) {
+        isAll = true
+        tableView.reloadData()
         
     }
     
@@ -47,9 +59,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
     func displayFriendsUnder20(_ friendsList:[Friend]) {
         displayAll(friendsList.filter { $0.age < 20}) 
     }
+    
     
     func findAverageAge(_ friendsList:[Friend])->Double {
         var total = 0
@@ -63,7 +77,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.friendsList.count
+        if isAll{
+            return self.friendsList.count
+        }
+        else{
+            return self.friendsList.filter { $0.age < 20}.count
+        }
         
     }
     
@@ -71,8 +90,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         
+        if isAll{
+            cell.textLabel?.text = self.friendsList[indexPath.row].toString
+        }
+        else{
+            cell.textLabel?.text = self.friendsList.filter { $0.age < 20}[indexPath.row].toString
+        }
         
-        cell.textLabel?.text = self.friendsList[indexPath.row].toString
+        
         
         return cell
     }
