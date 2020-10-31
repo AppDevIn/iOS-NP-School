@@ -40,6 +40,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
     }
     @IBAction func under20Pressed(_ sender: Any) {
         
