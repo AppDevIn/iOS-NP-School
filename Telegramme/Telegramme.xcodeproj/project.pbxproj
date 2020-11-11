@@ -64,19 +64,43 @@
 		9BBC99F5255A209100531BED /* Telegramme */ = {
 			isa = PBXGroup;
 			children = (
+				9BC4FC2F255BBD7100207BFD /* Storyboard */,
+				9BC4FC2E255BBD6000207BFD /* Model */,
+				9BC4FC2D255BBD4600207BFD /* Controller */,
 				9BBC99F6255A209100531BED /* AppDelegate.swift */,
 				9BBC99F8255A209100531BED /* SceneDelegate.swift */,
-				9BBC99FA255A209100531BED /* ViewController.swift */,
-				9BBC99FC255A209100531BED /* Main.storyboard */,
 				9BBC99FF255A209200531BED /* Assets.xcassets */,
 				9BBC9A01255A209200531BED /* LaunchScreen.storyboard */,
 				9BBC9A04255A209200531BED /* Info.plist */,
-				9B303501255A256F0034DD71 /* Content.storyboard */,
-				9B303504255A2A760034DD71 /* AddContactViewController.swift */,
-				9B303507255A2F040034DD71 /* Contact.swift */,
-				9B30350A255A337E0034DD71 /* ShowContactViewController.swift */,
 			);
 			path = Telegramme;
+			sourceTree = "<group>";
+		};
+		9BC4FC2D255BBD4600207BFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B30350A255A337E0034DD71 /* ShowContactViewController.swift */,
+				9B303504255A2A760034DD71 /* AddContactViewController.swift */,
+				9BBC99FA255A209100531BED /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9BC4FC2E255BBD6000207BFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B303507255A2F040034DD71 /* Contact.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BC4FC2F255BBD7100207BFD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B303501255A256F0034DD71 /* Content.storyboard */,
+				9BBC99FC255A209100531BED /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
