@@ -80,9 +80,9 @@ class AddContactViewController : UIViewController {
     }
     
     func backAction() {
-        let storyboard = UIStoryboard(name: "Content", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Content") as UIViewController
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            print("Back to main controller")
+        }
+
     }
 }

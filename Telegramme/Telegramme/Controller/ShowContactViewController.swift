@@ -16,6 +16,8 @@ class ShowContactViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        print("Running.....")
+        
         self.tableView.reloadData()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -23,9 +25,21 @@ class ShowContactViewController: UITableViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Running wiilAppear.....")
         self.tableView.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Running DidAppear.....")
+        self.tableView.reloadData()
+    }
+    
+    
+    
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
