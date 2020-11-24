@@ -12,7 +12,7 @@ class ShowContactViewController: UITableViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var contactList:[Contact] = []
-    
+    let contactController:ContactController = ContactController();
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -25,7 +25,6 @@ class ShowContactViewController: UITableViewController {
         if let contacts = ContactController().retrieveAllContact() {
             contactList = contacts
         }
-        
         
         
         
@@ -67,11 +66,13 @@ class ShowContactViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             if indexPath.section == 0 {
-                self.appDelegate.contactList.remove(at: indexPath.row)
+//                self.appDelegate.contactList.remove(at: indexPath.row)
             }else{
-                self.appDelegate.contactList.remove(at: indexPath.row)
+//                self.appDelegate.contactList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
+            
+            contactController.deleteContact(mobileno: contactList[indexPath.row].mobileNo)
             
             self.tableView.reloadData()
             
@@ -86,7 +87,7 @@ class ShowContactViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
                                         title: "Edit") { [weak self] (action, view, completionHandler) in
-            self?.editHandler(indexPath.row)
+            self?.editHandler(self!.contactList[indexPath.row])
                                             completionHandler(true)
         }
         action.backgroundColor = .systemBlue
@@ -95,7 +96,7 @@ class ShowContactViewController: UITableViewController {
     }
     
     
-    func editHandler(_ contact:Int) {
+    func editHandler(_ contact:Contact) {
         print("Edit is clicked")
         
         
@@ -103,7 +104,7 @@ class ShowContactViewController: UITableViewController {
         
         let storyboard = UIStoryboard(name: "Content", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Contact") as AddContactViewController
-        vc.contactIndex = contact
+        vc.contact = contact
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
         

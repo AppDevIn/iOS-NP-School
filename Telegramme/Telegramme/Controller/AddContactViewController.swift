@@ -18,7 +18,8 @@ class AddContactViewController : UIViewController {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
-    var contactIndex:Int?;
+    var contact:Contact?;
+    let contactController:ContactController = ContactController();
     
     
     override func viewDidLoad() {
@@ -26,10 +27,8 @@ class AddContactViewController : UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        if let index = contactIndex
+        if let con = contact
         {
-            let con:Contact  = appDelegate.contactList[index]
-            
             firstNameFld.text =  con.firstName
             lastNameFld.text =  con.lastName
             mobileFld.text =  con.mobileNo
@@ -50,17 +49,14 @@ class AddContactViewController : UIViewController {
     
     
     @IBAction func createBtn(_ sender: Any) {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        
+
         
         if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
             
-            ContactController().addContact(newContact: Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
-//            appDelegate.contactList.append(Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
+            contactController.addContact(newContact: Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
             clear()
             print("Contact Created")
-            ContactController().retrieveAllContact()
+            
         }
         
     }
@@ -76,10 +72,13 @@ class AddContactViewController : UIViewController {
     }
     
     @IBAction func EditCancel(_ sender: Any) {
-        if let index = contactIndex{
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let con = contact{
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
-                appDelegate.contactList[index] = Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
+//                appDelegate.contactList[index] = Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
+                let c:Contact =  Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
+                contactController.updateContact(mobileno: con.mobileNo, newContact:c)
+                
                 backAction()
             }
             

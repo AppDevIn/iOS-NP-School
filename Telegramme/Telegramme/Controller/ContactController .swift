@@ -74,11 +74,70 @@ class ContactController {
     //fetch data  based on mobileno
     func updateContact(mobileno:String, newContact:Contact)  {
         
+        //Refering to the container
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        
+        //Create a contect for this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "CDContact")
+        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
+        
+        do {
+            
+            let result = try context.fetch(fetchRequest)
+            
+            let objectUpdate = result[0] as! NSManagedObject
+            objectUpdate.setValue(newContact.firstName, forKey: "firstname")
+            objectUpdate.setValue(newContact.lastName, forKey: "lastname")
+            objectUpdate.setValue(newContact.mobileNo, forKey: "mobileno")
+            
+            do {
+                try context.save()
+            } catch  {
+                print(error)
+            }
+            
+            
+        } catch  {
+            print(error)
+        }
+        
+        
+        
+        
     }
     
     //Delete contact
     //fetch data based on mobileno
     func deleteContact(mobileno:String){
+        
+        //Refering to the container
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        
+        //Create a contect for this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDContact")
+        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            
+            let objecToDelete = result[0] as! NSManagedObject
+            context.delete(objecToDelete)
+            
+            do {
+                try context.save()
+            } catch  {
+                print(error)
+            }
+            
+        } catch  {
+            print(error)
+        }
+        
+        
         
     }
     
