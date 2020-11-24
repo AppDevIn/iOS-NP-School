@@ -17,6 +17,7 @@
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="friend" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDFriend" inverseName="messages" inverseEntity="CDFriend"/>
     </entity>
+    <fetchRequest name="FetchRequest" entity="CDFriend"/>
     <elements>
         <element name="CDContact" positionX="-268.5720825195312" positionY="-131.6059112548828" width="118.31201171875" height="88"/>
         <element name="CDFriend" positionX="-94.3956298828125" positionY="-121.2802429199219" width="128" height="103"/>
