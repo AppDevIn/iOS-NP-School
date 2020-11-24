@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        contactList = [
-            Contact(firstname: "Apple", lastname: "Seed", mobileno: "91234567"),
-            Contact(firstname: "Blue", lastname: "Berry", mobileno: "98765432"),
-            Contact(firstname: "Claud", lastname: "Cool", mobileno: "90000001")
-        ]
+//        contactList = [
+//            Contact(firstname: "Apple", lastname: "Seed", mobileno: "91234567"),
+//            Contact(firstname: "Blue", lastname: "Berry", mobileno: "98765432"),
+//            Contact(firstname: "Claud", lastname: "Cool", mobileno: "90000001")
+//        ]
         
         return true
     }
@@ -40,8 +41,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Telegramme")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
+            }
+        }
+        
+        return container
+    }()
     
-
-
+    func saveContext(backgroundContext: NSManagedObjectContext? = nil) {
+        let context = persistentContainer.viewContext
+        guard context.hasChanges else { return }
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Unresolved Error: \(error), \(error.userInfo)")
+        }
+    }
+    
+    
 }
 

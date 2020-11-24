@@ -9,6 +9,7 @@ import UIKit
 
 
 
+
 class AddContactViewController : UIViewController {
     
     @IBOutlet weak var firstNameFld: UITextField!
@@ -18,6 +19,7 @@ class AddContactViewController : UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     
     var contactIndex:Int?;
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +50,17 @@ class AddContactViewController : UIViewController {
     
     
     @IBAction func createBtn(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        
         if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
-            appDelegate.contactList.append(Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
+            
+            ContactController().addContact(newContact: Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
+//            appDelegate.contactList.append(Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
             clear()
             print("Contact Created")
+            ContactController().retrieveAllContact()
         }
         
     }
