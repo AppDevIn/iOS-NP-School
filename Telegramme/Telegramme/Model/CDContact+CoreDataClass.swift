@@ -11,4 +11,7 @@ import CoreData
 
 @objc(CDContact)
 public class CDContact: NSManagedObject {
+
+    
+    
 }

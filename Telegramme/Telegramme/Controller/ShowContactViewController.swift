@@ -109,8 +109,6 @@ class ShowContactViewController: UITableViewController {
         print("Edit is clicked")
         
         
-        
-        
         let storyboard = UIStoryboard(name: "Content", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Contact") as AddContactViewController
         vc.contact = contact
@@ -124,3 +122,6 @@ class ShowContactViewController: UITableViewController {
     
     
 }
+
+
+

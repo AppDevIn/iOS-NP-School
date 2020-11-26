@@ -22,8 +22,10 @@ class AddContactViewController : UIViewController {
     let contactController:ContactController = ContactController();
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         
@@ -36,60 +38,73 @@ class AddContactViewController : UIViewController {
             
             editBtn.isHidden = false
             cancelBtn.isHidden = false
-        } else {
+        }
+        else {
             editBtn.isHidden = true
             cancelBtn.isHidden = true
         }
         
     }
     
+    
+    
     @IBAction func cancelBtn(_ sender: Any) {
         clear()
     }
     
-    
-    @IBAction func createBtn(_ sender: Any) {
-
-        
-        if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
-            
-            contactController.addContact(firstName: firstNameFld.text!, lastName: lastNameFld.text!, mobileNo: mobileFld.text!)
-            clear()
-            print("Contact Created")
-            
-        }
-        
-    }
     
     func clear() {
         firstNameFld.text = ""
         lastNameFld.text = ""
         mobileFld.text = ""
     }
-    
-    @IBAction func cancelClicked(_ sender: Any) {
-        backAction()
-    }
-    
-    @IBAction func EditCancel(_ sender: Any) {
-        if let con = contact{
-//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
-//                appDelegate.contactList[index] = Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
-                
-                contactController.updateContact(oldmobileno: con.mobileno!, firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
-                
-                backAction()
-            }
-            
-            
-        }
-    }
+
     
     func backAction() {
         self.dismiss(animated: true) {
             print("Back to main controller")
         }
 
+    }
+}
+
+
+//Create the buttong
+extension AddContactViewController{
+    @IBAction func createBtn(_ sender: Any) {
+        
+        if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
+            
+            contactController.addContact(firstName: firstNameFld.text!, lastName: lastNameFld.text!, mobileNo: mobileFld.text!)
+            clear()
+        
+            
+            print("Contact Created")
+            
+        }
+        
+    }
+    
+    
+}
+
+
+// Edit mode
+extension AddContactViewController{
+    @IBAction func cancelClicked(_ sender: Any) {
+        backAction()
+    }
+    
+    @IBAction func EditCancel(_ sender: Any) {
+        
+
+        if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
+            contactController.updateContact(oldmobileno: (contact?.mobileno)!, firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
+            
+            backAction()
+        }
+        
+            
+        
     }
 }
