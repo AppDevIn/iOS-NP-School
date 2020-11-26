@@ -46,19 +46,24 @@ class FriendController {
         let messageEntity = NSEntityDescription.entity(forEntityName:"CDMessage", in:context)!
         
         //friend record
-        let messageObj = NSManagedObject(entity:messageEntity, insertInto: context)
-        messageObj.setValue(message.isSender , forKeyPath:"isSender")
-        messageObj.setValue(message.text , forKeyPath:"text")
-        messageObj.setValue(message.date , forKeyPath:"date")
-        messageObj.setValue(friend , forKeyPath:"friend")
         
-        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDFriend")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", friend.name)
         
         
         do {
+            let friendlist = try context.fetch(fetchRequest)
+            let f = friendlist[0]
+            
+            let messageObj = NSManagedObject(entity:messageEntity, insertInto: context)
+            messageObj.setValue(message.isSender , forKeyPath:"isSender")
+            messageObj.setValue(message.text , forKeyPath:"text")
+            messageObj.setValue(message.date , forKeyPath:"date")
+            messageObj.setValue(f , forKeyPath:"friend")
+            
             try context.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        } catch  {
+            print(error)
         }
     }
     
