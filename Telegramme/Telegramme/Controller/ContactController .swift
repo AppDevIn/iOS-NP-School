@@ -11,17 +11,21 @@ import UIKit
 //Contact CRUD
 class ContactController {
     
+    
+    var appDelegate:AppDelegate
+    let context:NSManagedObjectContext
+
     init() {
-        
+        //Refering to the container
+       appDelegate  = (UIApplication.shared.delegate) as! AppDelegate
+
+        //Create a contect for this container
+        context = appDelegate.persistentContainer.viewContext
     }
+    
     
     //Add new contact to core data
     func addContact(newContact:Contact) {
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
         
         //Create an entity and a new contact record
         let contactEntity = NSEntityDescription.entity(forEntityName:"CDContact", in:context)!
@@ -42,12 +46,6 @@ class ContactController {
     
     //Retrieve all contact from core data
     func retrieveAllContact() -> [Contact]? {
-        
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDContact")
         
@@ -74,11 +72,6 @@ class ContactController {
     //fetch data  based on mobileno
     func updateContact(mobileno:String, newContact:Contact)  {
         
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "CDContact")
         fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
@@ -112,11 +105,6 @@ class ContactController {
     //fetch data based on mobileno
     func deleteContact(mobileno:String){
         
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDContact")
         fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
