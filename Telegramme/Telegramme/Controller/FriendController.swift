@@ -12,12 +12,20 @@ import CoreData
 //Contact CRUD
 class FriendController {
     
-    func AddFriend(friend:Friend)  {
+    var appDelegate:AppDelegate
+    let context:NSManagedObjectContext
+
+    init() {
         //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
+       appDelegate  = (UIApplication.shared.delegate) as! AppDelegate
+
         //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
+        context = appDelegate.persistentContainer.viewContext
+    }
+    
+    
+    func AddFriend(friend:Friend)  {
+
         
         //Create an entity and a new friend record
         let friendEntity = NSEntityDescription.entity(forEntityName:"CDFriend", in:context)!
@@ -36,11 +44,7 @@ class FriendController {
     }
     
     func AddMessageToFriend(friend:Friend, message:Message) {
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
+
         
         //Create an entity and a new friend record
         let messageEntity = NSEntityDescription.entity(forEntityName:"CDMessage", in:context)!
@@ -68,7 +72,30 @@ class FriendController {
     }
     
     func retriveMessagesByFriend(friend:Friend) -> [Message]{
-        return []
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDFriend")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", friend.name)
+        
+        //List of the contact
+        var messages:[Message] = []
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            let fri = result[0] as! NSManagedObject
+            
+            let messagesList = fri.value(forKey: "message")
+            
+            for f in messagesList as! [NSManagedObject] {
+                let message:Message = Message(text: f.value(forKey: "text") as! String, isSender: f.value(forKey: "isSender") as! Bool, date: f.value(forKey: "date") as! Date)
+                
+                messages.append(message)
+            }
+            
+
+            return messages
+        } catch  {
+            print("Failed")
+            return []
+        }
     }
     
     
