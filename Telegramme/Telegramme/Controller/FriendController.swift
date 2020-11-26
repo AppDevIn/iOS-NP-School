@@ -12,54 +12,40 @@ import CoreData
 //Contact CRUD
 class FriendController {
     
-    func AddFriend(friend:Friend)  {
+    var appDelegate:AppDelegate
+    let context:NSManagedObjectContext
+    var items:[CDFriend] = []
+
+    init() {
         //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
+       appDelegate  = (UIApplication.shared.delegate) as! AppDelegate
+
         //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
+        context = appDelegate.persistentContainer.viewContext
+    }
+    
+    
+    func AddFriend(name:String, profileImageName:String)  {
         
-        //Create an entity and a new friend record
-        let friendEntity = NSEntityDescription.entity(forEntityName:"CDFriend", in:context)!
-        
-        //friend record
-        let friendObj = NSManagedObject(entity:friendEntity, insertInto: context)
-        friendObj.setValue(friend.name , forKeyPath:"name")
-        friendObj.setValue(friend.profileImageName , forKeyPath:"profileImageName")
-        
+        let cdFriend = CDFriend(context: context)
+        cdFriend.name = name
+        cdFriend.profileImageName = profileImageName
         
         do {
             try context.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
+        items.append(cdFriend)
     }
     
-    func AddMessageToFriend(friend:Friend, message:Message) {
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
-        
-        //Create an entity and a new friend record
-        let messageEntity = NSEntityDescription.entity(forEntityName:"CDMessage", in:context)!
-        
-        //friend record
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDFriend")
-        fetchRequest.predicate = NSPredicate(format: "name = %@", friend.name)
+    func AddMessageToFriend(friend:CDFriend, message:CDMessage) {
+       
+        friend.addToMessages(message)
         
         
         do {
-            let friendlist = try context.fetch(fetchRequest)
-            let f = friendlist[0]
-            
-            let messageObj = NSManagedObject(entity:messageEntity, insertInto: context)
-            messageObj.setValue(message.isSender , forKeyPath:"isSender")
-            messageObj.setValue(message.text , forKeyPath:"text")
-            messageObj.setValue(message.date , forKeyPath:"date")
-            messageObj.setValue(f , forKeyPath:"friend")
             
             try context.save()
         } catch  {
@@ -73,8 +59,22 @@ class FriendController {
 
     }
     
-    func retriveMessagesByFriend(friend:Friend) -> [Message]{
-        return []
+    func retriveMessagesByFriend(friend:CDFriend) -> [CDMessage]{
+        
+        let request = CDFriend.fetchRequest() as  NSFetchRequest<CDFriend>
+        request.predicate =  NSPredicate(format: "name = %@ ", friend.name!)
+    
+        do {
+            let result = try context.fetch(request)
+            
+            return result[0].messages?.allObjects as! [CDMessage]
+        } catch  {
+            return []
+        }
+        
+        
+        
+        
     }
     
     

@@ -25,14 +25,14 @@ class ContactController {
     }
     
     //Add new contact to core data
-    func addContact(newContact:Contact) {
+    func addContact(firstName:String, lastName:String, mobileNo:String) {
         
         
         //Create the object
         let contact = CDContact(context: context)
-        contact.firstname = newContact.firstName
-        contact.lastname = newContact.lastName
-        contact.mobileno = newContact.mobileNo
+        contact.firstname = firstName
+        contact.lastname = lastName
+        contact.mobileno = mobileNo
         
         
         //Save the data
@@ -69,27 +69,27 @@ class ContactController {
     
     //Update current contact with new contact
     //fetch data  based on mobileno
-    func updateContact(mobileno:String, newContact:Contact)  {
+    func updateContact(oldmobileno:String, firstname:String, lastname:String, mobileno:String)  {
         
-        self.retrieveAllContact()
-        if let contact = items.first(where: { $0.mobileno == mobileno }) {
-            contact.firstname = newContact.firstName
-            contact.lastname = newContact.lastName
-            contact.mobileno = newContact.mobileNo
+        let request = CDContact.fetchRequest() as NSFetchRequest<CDContact>
+        request.predicate = NSPredicate(format: "mobileno = %@", oldmobileno)
+        do {
+            let result = try context.fetch(request)
+            let contact =  result[0]
             
-            do {
-                try self.context.save()
-            } catch  {
-                print(error)
-            }
-
+            contact.firstname = firstname
+            contact.lastname = lastname
+            contact.mobileno = mobileno
+            
+            try self.context.save()
             
             if let contacts = self.retrieveAllContact() {
                 items = contacts
             }
+            
+        } catch  {
+            print(error)
         }
-        
-   
         
         
         

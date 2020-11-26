@@ -53,7 +53,7 @@ class AddContactViewController : UIViewController {
         
         if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
             
-            contactController.addContact(newContact: Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
+            contactController.addContact(firstName: firstNameFld.text!, lastName: lastNameFld.text!, mobileNo: mobileFld.text!)
             clear()
             print("Contact Created")
             
@@ -76,8 +76,8 @@ class AddContactViewController : UIViewController {
 //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
 //                appDelegate.contactList[index] = Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
-                let c:Contact =  Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
-                contactController.updateContact(mobileno: con.mobileno!, newContact:c)
+                
+                contactController.updateContact(oldmobileno: con.mobileno!, firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
                 
                 backAction()
             }
