@@ -11,27 +11,31 @@ import UIKit
 //Contact CRUD
 class ContactController {
     
+    
+    var appDelegate:AppDelegate
+    let context:NSManagedObjectContext
+    var items:[CDContact] = []
+
     init() {
-        
+        //Refering to the container
+       appDelegate  = (UIApplication.shared.delegate) as! AppDelegate
+
+        //Create a contect for this container
+        context = appDelegate.persistentContainer.viewContext
     }
     
     //Add new contact to core data
     func addContact(newContact:Contact) {
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
         
-        //Create an entity and a new contact record
-        let contactEntity = NSEntityDescription.entity(forEntityName:"CDContact", in:context)!
+        //Create the object
+        let contact = CDContact(context: context)
+        contact.firstname = newContact.firstName
+        contact.lastname = newContact.lastName
+        contact.mobileno = newContact.mobileNo
         
-        //Contact record
-        let contact = NSManagedObject(entity:contactEntity, insertInto: context)
-        contact.setValue(newContact.firstName , forKeyPath:"firstname")
-        contact.setValue(newContact.lastName , forKeyPath:"lastname")
-        contact.setValue(newContact.mobileNo , forKeyPath:"mobileno")
         
+        //Save the data
         do {
             try context.save()
         } catch let error as NSError {
@@ -41,68 +45,51 @@ class ContactController {
     }
     
     //Retrieve all contact from core data
-    func retrieveAllContact() -> [Contact]? {
+    func retrieveAllContact() -> [CDContact]? {
         
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDContact")
-        
-        //List of the contact
-        var contactList:[Contact] = []
         
         do {
-            let result = try context.fetch(fetchRequest)
-            for data in result as! [NSManagedObject]{
-                let con:Contact = Contact(firstname: data.value(forKey: "firstname") as! String, lastname: data.value(forKey: "lastname") as! String, mobileno: data.value(forKey: "mobileno") as! String)
-                contactList.append(con)
+            let result = try context.fetch(CDContact.fetchRequest())
+            var contactList:[CDContact] = []
+            
+            for data in result as! [CDContact]{
                 
+                contactList.append(data)
             }
-            return contactList
-        } catch  {
-            print("Failed")
+            items = contactList
+            return items
+            
+        } catch {
+            print(error)
             return nil
+            
         }
-        
-        
+
     }
     
     //Update current contact with new contact
     //fetch data  based on mobileno
     func updateContact(mobileno:String, newContact:Contact)  {
         
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "CDContact")
-        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
-        
-        do {
-            
-            let result = try context.fetch(fetchRequest)
-            
-            let objectUpdate = result[0] as! NSManagedObject
-            objectUpdate.setValue(newContact.firstName, forKey: "firstname")
-            objectUpdate.setValue(newContact.lastName, forKey: "lastname")
-            objectUpdate.setValue(newContact.mobileNo, forKey: "mobileno")
+        self.retrieveAllContact()
+        if let contact = items.first(where: { $0.mobileno == mobileno }) {
+            contact.firstname = newContact.firstName
+            contact.lastname = newContact.lastName
+            contact.mobileno = newContact.mobileNo
             
             do {
-                try context.save()
+                try self.context.save()
             } catch  {
                 print(error)
             }
+
             
-            
-        } catch  {
-            print(error)
+            if let contacts = self.retrieveAllContact() {
+                items = contacts
+            }
         }
         
+   
         
         
         
@@ -112,29 +99,19 @@ class ContactController {
     //fetch data based on mobileno
     func deleteContact(mobileno:String){
         
-        //Refering to the container
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        
-        //Create a contect for this container
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDContact")
-        fetchRequest.predicate = NSPredicate(format: "mobileno = %@", mobileno)
+        if let contact = items.first(where: { $0.mobileno == mobileno }) {
+            self.context.delete(contact)
+        }
         
         do {
-            let result = try context.fetch(fetchRequest)
-            
-            let objecToDelete = result[0] as! NSManagedObject
-            context.delete(objecToDelete)
-            
-            do {
-                try context.save()
-            } catch  {
-                print(error)
-            }
-            
+            try context.save()
         } catch  {
             print(error)
+        }
+
+        
+        if let contacts = self.retrieveAllContact() {
+            items = contacts
         }
         
         

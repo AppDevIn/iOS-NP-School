@@ -12,6 +12,12 @@
 		9B000105256CFCE700F0793D /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B000104256CFCE700F0793D /* FriendController.swift */; };
 		9B000108256D333E00F0793D /* Friened.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B000107256D333E00F0793D /* Friened.swift */; };
 		9B00010B256D346C00F0793D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00010A256D346C00F0793D /* Message.swift */; };
+		9B000122256F3A8300F0793D /* CDFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00011C256F3A8300F0793D /* CDFriend+CoreDataClass.swift */; };
+		9B000123256F3A8300F0793D /* CDFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00011D256F3A8300F0793D /* CDFriend+CoreDataProperties.swift */; };
+		9B000124256F3A8300F0793D /* CDContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00011E256F3A8300F0793D /* CDContact+CoreDataClass.swift */; };
+		9B000125256F3A8300F0793D /* CDContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00011F256F3A8300F0793D /* CDContact+CoreDataProperties.swift */; };
+		9B000126256F3A8300F0793D /* CDMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B000120256F3A8300F0793D /* CDMessage+CoreDataClass.swift */; };
+		9B000127256F3A8300F0793D /* CDMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B000121256F3A8300F0793D /* CDMessage+CoreDataProperties.swift */; };
 		9B303502255A256F0034DD71 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B303501255A256F0034DD71 /* Content.storyboard */; };
 		9B303505255A2A760034DD71 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B303504255A2A760034DD71 /* AddContactViewController.swift */; };
 		9B303508255A2F040034DD71 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B303507255A2F040034DD71 /* Contact.swift */; };
@@ -30,6 +36,12 @@
 		9B000104256CFCE700F0793D /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		9B000107256D333E00F0793D /* Friened.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friened.swift; sourceTree = "<group>"; };
 		9B00010A256D346C00F0793D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9B00011C256F3A8300F0793D /* CDFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDFriend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B00011D256F3A8300F0793D /* CDFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDFriend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B00011E256F3A8300F0793D /* CDContact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDContact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B00011F256F3A8300F0793D /* CDContact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B000120256F3A8300F0793D /* CDMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B000121256F3A8300F0793D /* CDMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B303501255A256F0034DD71 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
 		9B303504255A2A760034DD71 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		9B303507255A2F040034DD71 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -102,6 +114,12 @@
 		9BC4FC2E255BBD6000207BFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B00011C256F3A8300F0793D /* CDFriend+CoreDataClass.swift */,
+				9B00011D256F3A8300F0793D /* CDFriend+CoreDataProperties.swift */,
+				9B00011E256F3A8300F0793D /* CDContact+CoreDataClass.swift */,
+				9B00011F256F3A8300F0793D /* CDContact+CoreDataProperties.swift */,
+				9B000120256F3A8300F0793D /* CDMessage+CoreDataClass.swift */,
+				9B000121256F3A8300F0793D /* CDMessage+CoreDataProperties.swift */,
 				9B303507255A2F040034DD71 /* Contact.swift */,
 				9B000107256D333E00F0793D /* Friened.swift */,
 				9B00010A256D346C00F0793D /* Message.swift */,
@@ -189,12 +207,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B000123256F3A8300F0793D /* CDFriend+CoreDataProperties.swift in Sources */,
 				9BBC99FB255A209100531BED /* ViewController.swift in Sources */,
 				9B303505255A2A760034DD71 /* AddContactViewController.swift in Sources */,
+				9B000122256F3A8300F0793D /* CDFriend+CoreDataClass.swift in Sources */,
 				9B303508255A2F040034DD71 /* Contact.swift in Sources */,
+				9B000124256F3A8300F0793D /* CDContact+CoreDataClass.swift in Sources */,
 				9B000101256C993900F0793D /* ContactController .swift in Sources */,
+				9B000125256F3A8300F0793D /* CDContact+CoreDataProperties.swift in Sources */,
+				9B000126256F3A8300F0793D /* CDMessage+CoreDataClass.swift in Sources */,
 				9BBC99F7255A209100531BED /* AppDelegate.swift in Sources */,
 				9B30350B255A337E0034DD71 /* ShowContactViewController.swift in Sources */,
+				9B000127256F3A8300F0793D /* CDMessage+CoreDataProperties.swift in Sources */,
 				9B00010B256D346C00F0793D /* Message.swift in Sources */,
 				9B0000FE256C920900F0793D /* Telegramme.xcdatamodeld in Sources */,
 				9B000108256D333E00F0793D /* Friened.swift in Sources */,

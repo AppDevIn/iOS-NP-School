@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B50" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CDContact" representedClassName="CDContact" syncable="YES" codeGenerationType="class">
+    <entity name="CDContact" representedClassName="CDContact" syncable="YES">
         <attribute name="firstname" optional="YES" attributeType="String"/>
         <attribute name="lastname" optional="YES" attributeType="String"/>
         <attribute name="mobileno" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="CDFriend" representedClassName="CDFriend" syncable="YES" codeGenerationType="class">
+    <entity name="CDFriend" representedClassName="CDFriend" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="profileImageName" optional="YES" attributeType="String"/>
         <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMessage"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMessage" inverseName="friend" inverseEntity="CDMessage"/>
     </entity>
-    <entity name="CDMessage" representedClassName="CDMessage" syncable="YES" codeGenerationType="class">
+    <entity name="CDMessage" representedClassName="CDMessage" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isSender" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
@@ -19,8 +19,8 @@
     </entity>
     <fetchRequest name="FetchRequest" entity="CDFriend"/>
     <elements>
-        <element name="CDContact" positionX="-268.5720825195312" positionY="-131.6059112548828" width="118.31201171875" height="88"/>
-        <element name="CDFriend" positionX="-94.3956298828125" positionY="-121.2802429199219" width="128" height="103"/>
-        <element name="CDMessage" positionX="174.4462890625" positionY="-92.59149169921875" width="128" height="103"/>
+        <element name="CDContact" positionX="-268.5720825195312" positionY="-131.6059112548828" width="118.31201171875" height="74"/>
+        <element name="CDFriend" positionX="-94.3956298828125" positionY="-121.2802429199219" width="128" height="89"/>
+        <element name="CDMessage" positionX="174.4462890625" positionY="-92.59149169921875" width="128" height="89"/>
     </elements>
 </model>

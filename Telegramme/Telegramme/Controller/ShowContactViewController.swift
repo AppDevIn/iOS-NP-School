@@ -11,20 +11,19 @@ import UIKit
 class ShowContactViewController: UITableViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var contactList:[Contact] = []
+    var contactList:[CDContact] = []
     let contactController:ContactController = ContactController();
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         print("Running.....")
+
+        fetchPeople()
         
-        self.tableView.reloadData()
+        
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        if let contacts = ContactController().retrieveAllContact() {
-            contactList = contacts
-        }
+
         
         
         
@@ -33,13 +32,25 @@ class ShowContactViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("Running wiilAppear.....")
-        self.tableView.reloadData()
+        fetchPeople()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("Running DidAppear.....")
-        self.tableView.reloadData()
+        fetchPeople()
+    }
+    
+    
+    func fetchPeople(){
+        if let contacts = contactController.retrieveAllContact() {
+            contactList = contacts
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+        
     }
     
     
@@ -58,23 +69,21 @@ class ShowContactViewController: UITableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
         
         let contact = contactList[indexPath.row]
-        cell.textLabel!.text = "\(contact.firstName) \(contact.lastName)"
+        cell.textLabel!.text = "\(contact.firstname!) \(contact.lastname!)"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            if indexPath.section == 0 {
-//                self.appDelegate.contactList.remove(at: indexPath.row)
-            }else{
-//                self.appDelegate.contactList.remove(at: indexPath.row)
+            if indexPath.section != 0 {
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
             
-            contactController.deleteContact(mobileno: contactList[indexPath.row].mobileNo)
+            contactController.deleteContact(mobileno: contactList[indexPath.row].mobileno!)
             
-            self.tableView.reloadData()
+            fetchPeople()
+
             
         }
     }
@@ -96,7 +105,7 @@ class ShowContactViewController: UITableViewController {
     }
     
     
-    func editHandler(_ contact:Contact) {
+    func editHandler(_ contact:CDContact) {
         print("Edit is clicked")
         
         

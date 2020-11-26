@@ -18,20 +18,20 @@ class AddContactViewController : UIViewController {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
-    var contact:Contact?;
+    var contact:CDContact?;
     let contactController:ContactController = ContactController();
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         
         if let con = contact
         {
-            firstNameFld.text =  con.firstName
-            lastNameFld.text =  con.lastName
-            mobileFld.text =  con.mobileNo
+            firstNameFld.text =  con.firstname
+            lastNameFld.text =  con.lastname
+            mobileFld.text =  con.mobileno
             
             
             editBtn.isHidden = false
@@ -77,7 +77,7 @@ class AddContactViewController : UIViewController {
             if(firstNameFld.text! != "" && lastNameFld.text! != "" && mobileFld.text! != ""){
 //                appDelegate.contactList[index] = Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
                 let c:Contact =  Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!)
-                contactController.updateContact(mobileno: con.mobileNo, newContact:c)
+                contactController.updateContact(mobileno: con.mobileno!, newContact:c)
                 
                 backAction()
             }
