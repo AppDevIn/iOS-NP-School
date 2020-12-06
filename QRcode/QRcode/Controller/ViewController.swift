@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBAction func btn_submit(_ sender: Any) {
         if let text = txt_input.text {
             image.image = generateCode(text)
+            
         }
         
     }
