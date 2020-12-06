@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import QRCoder
 
-class GenerateQRCodeController: QRCodeScannerViewController {
+class ScannerController: QRCodeScannerViewController {
     
     override func processQRCodeContent(qrCodeContent: String) -> Bool {
         print(qrCodeContent)
@@ -21,7 +21,6 @@ class GenerateQRCodeController: QRCodeScannerViewController {
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
     
     
     

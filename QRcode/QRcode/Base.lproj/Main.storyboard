@@ -58,13 +58,50 @@
             </objects>
             <point key="canvasLocation" x="686.95652173913049" y="116.51785714285714"/>
         </scene>
+        <!--Scanner Controller-->
+        <scene sceneID="IJ8-s2-H4Z">
+            <objects>
+                <viewController id="SUF-Uo-VSv" customClass="ScannerController" customModule="QRcode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="upw-CT-gvP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8m-54-TFH">
+                                <rect key="frame" x="184" y="736" width="48" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="SUF-Uo-VSv" eventType="touchUpInside" id="yYH-1I-zUF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6zV-ze-F5x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3Q-gR-dLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1677" y="848"/>
+        </scene>
         <!--Item-->
         <scene sceneID="5si-TF-4Os">
             <objects>
-                <viewController id="90t-la-aXa" customClass="GenerateQRCodeController" customModule="QRcode" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="90t-la-aXa" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMr-Op-cVk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZg-SM-ixQ">
+                                <rect key="frame" x="150" y="112" width="115" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <segue destination="SUF-Uo-VSv" kind="presentation" id="doo-fE-Lj4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Smr-hN-4kV"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                     </view>
@@ -95,6 +132,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

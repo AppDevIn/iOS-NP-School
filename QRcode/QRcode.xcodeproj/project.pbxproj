@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B05536E2575D1000026BA0A /* GenerateQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B05536D2575D1000026BA0A /* GenerateQRCodeController.swift */; };
+		9B05536E2575D1000026BA0A /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B05536D2575D1000026BA0A /* ScannerController.swift */; };
 		9BC6A6292575CD2500C0562E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6A6282575CD2500C0562E /* AppDelegate.swift */; };
 		9BC6A62B2575CD2500C0562E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6A62A2575CD2500C0562E /* SceneDelegate.swift */; };
 		9BC6A62D2575CD2500C0562E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6A62C2575CD2500C0562E /* ViewController.swift */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		57B11B19ED86172C206FCA5D /* Pods-QRcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRcode.release.xcconfig"; path = "Target Support Files/Pods-QRcode/Pods-QRcode.release.xcconfig"; sourceTree = "<group>"; };
 		6F391169A7DAAA6C27DE56D4 /* Pods_QRcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B05536D2575D1000026BA0A /* GenerateQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRCodeController.swift; sourceTree = "<group>"; };
+		9B05536D2575D1000026BA0A /* ScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
 		9BC6A6252575CD2500C0562E /* QRcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC6A6282575CD2500C0562E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BC6A62A2575CD2500C0562E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9BC6A62C2575CD2500C0562E /* ViewController.swift */,
-				9B05536D2575D1000026BA0A /* GenerateQRCodeController.swift */,
+				9B05536D2575D1000026BA0A /* ScannerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B05536E2575D1000026BA0A /* GenerateQRCodeController.swift in Sources */,
+				9B05536E2575D1000026BA0A /* ScannerController.swift in Sources */,
 				9BC6A62D2575CD2500C0562E /* ViewController.swift in Sources */,
 				9BC6A6292575CD2500C0562E /* AppDelegate.swift in Sources */,
 				9BC6A62B2575CD2500C0562E /* SceneDelegate.swift in Sources */,
