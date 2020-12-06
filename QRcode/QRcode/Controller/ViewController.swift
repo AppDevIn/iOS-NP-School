@@ -25,6 +25,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         if let text = textField.text {
             image.image = generateCode(text)
         }
+        textField.resignFirstResponder()
         return true
         
     }
