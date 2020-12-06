@@ -12,13 +12,47 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QRcode" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="ViewCom">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bs6-NO-BTZ">
+                                <rect key="frame" x="10" y="168" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-N1-gD3">
+                                <rect key="frame" x="162" y="244" width="91" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="btn_submit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yeo-mb-HSF"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJn-SZ-OE8">
+                                <rect key="frame" x="87" y="333" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n6V-N1-gD3" secondAttribute="trailing" constant="161" id="9HU-WI-ERQ"/>
+                            <constraint firstItem="bs6-NO-BTZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Era-As-ijc"/>
+                            <constraint firstItem="n6V-N1-gD3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="162" id="FKY-An-feW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xJn-SZ-OE8" secondAttribute="trailing" constant="87" id="IX2-K0-WKu"/>
+                            <constraint firstItem="bs6-NO-BTZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="T5M-bG-stD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xJn-SZ-OE8" secondAttribute="bottom" constant="352" id="UUo-QR-LCX"/>
+                            <constraint firstItem="xJn-SZ-OE8" firstAttribute="top" secondItem="n6V-N1-gD3" secondAttribute="bottom" constant="59" id="Ujd-8H-Cj3"/>
+                            <constraint firstItem="n6V-N1-gD3" firstAttribute="top" secondItem="bs6-NO-BTZ" secondAttribute="bottom" constant="42" id="V1Z-hc-PmR"/>
+                            <constraint firstItem="xJn-SZ-OE8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="VQq-8y-B1V"/>
+                            <constraint firstItem="bs6-NO-BTZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="fT1-Ag-EJF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bs6-NO-BTZ" secondAttribute="trailing" constant="10" id="j0f-K9-reQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="oy1-VX-wTq"/>
+                    <connections>
+                        <outlet property="image" destination="xJn-SZ-OE8" id="oPH-rf-Brt"/>
+                        <outlet property="txt_input" destination="bs6-NO-BTZ" id="KKj-zD-0cQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +61,7 @@
         <!--Item-->
         <scene sceneID="5si-TF-4Os">
             <objects>
-                <viewController id="90t-la-aXa" sceneMemberID="viewController">
+                <viewController id="90t-la-aXa" customClass="GenerateQRCodeController" customModule="QRcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMr-Op-cVk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +80,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xoo-0A-oyr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kJY-Y6-omO">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
