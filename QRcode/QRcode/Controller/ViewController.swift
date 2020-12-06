@@ -8,7 +8,7 @@
 import UIKit
 import QRCoder
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
 
     
     @IBOutlet weak var txt_input: UITextField!
@@ -17,13 +17,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        txt_input.delegate = self
     }
 
-    @IBAction func btn_submit(_ sender: Any) {
-        if let text = txt_input.text {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text {
             image.image = generateCode(text)
-            
         }
+        return true
         
     }
     

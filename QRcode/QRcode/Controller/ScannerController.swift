@@ -14,7 +14,12 @@ class ScannerController: QRCodeScannerViewController {
     
     override func processQRCodeContent(qrCodeContent: String) -> Bool {
         print(qrCodeContent)
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "Alert", message: qrCodeContent, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Proceed", style: UIAlertAction.Style.default){_ in
+            self.dismiss(animated: true, completion: nil)
+        })
+        self.present(alert, animated: true, completion: nil)
+   
         
         redirectToWebView(qrCodeContent)
         
@@ -29,7 +34,7 @@ class ScannerController: QRCodeScannerViewController {
         
         if let url = URL(string: text){
             UIApplication.shared.open(url)
-        } else { return }
+        } else {return}
         
     }
     
