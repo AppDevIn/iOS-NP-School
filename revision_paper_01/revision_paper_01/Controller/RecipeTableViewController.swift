@@ -12,7 +12,7 @@ class RecipeTableViewController : UITableViewController {
     
     let recipe:RecipeController = RecipeController()
     let ingridents:IngridentsController = IngridentsController()
-    var contactList:[CDRecipe] = []
+    var recipeList:[CDRecipe] = []
     
     
     override func viewDidLoad() {
@@ -25,8 +25,8 @@ class RecipeTableViewController : UITableViewController {
     }
     
     func fetchPeople(){
-        if let contacts = recipe.retrieveAllContact() {
-              contactList = contacts
+        if let recipe = recipe.retrieveAllContact() {
+              recipeList = recipe
               DispatchQueue.main.async {
                   self.tableView.reloadData()
               }
@@ -36,7 +36,7 @@ class RecipeTableViewController : UITableViewController {
       }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactList.count
+        return recipeList.count
     }
     
     
@@ -47,11 +47,11 @@ class RecipeTableViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let contact = contactList[indexPath.row]
-        let time = String(contact.preparationTime)
-        cell.textLabel!.text = "\(contact.name!) (\(time))"
+        let recipe = recipeList[indexPath.row]
+        let time = String(recipe.preparationTime)
+        cell.textLabel!.text = "\(recipe.name!) (\(time))"
         
-        var ingridentsList:[CDIngredient] = ingridents.retriveMessagesByFriend(recipe: contactList[indexPath.row])
+        let ingridentsList:[CDIngredient] = ingridents.retriveMessagesByFriend(recipe: recipeList[indexPath.row])
         
         var allIngridents:String = ""
         for ingr in ingridentsList {
