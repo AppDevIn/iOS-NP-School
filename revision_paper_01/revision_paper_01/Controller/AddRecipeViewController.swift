@@ -48,8 +48,22 @@ class AddRecipeViewController: UIViewController {
             return
         }
         
+        clearText()
         
         
+        
+        
+    }
+    
+    func clearText(){
+        txt_time.text = ""
+        txt_title.text = ""
+        for index in 1...5 {
+            //Get One By One with Tag
+            if let txtField1 = self.view.viewWithTag(index) as? UITextField {
+                txtField1.text = "";
+            }
+        }
     }
     
     func alert(_ message:String){
