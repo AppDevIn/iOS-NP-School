@@ -11,11 +11,17 @@
 		9BD5A2E42581AE1C00B5D320 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A2E32581AE1C00B5D320 /* SceneDelegate.swift */; };
 		9BD5A2E62581AE1C00B5D320 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A2E52581AE1C00B5D320 /* ViewController.swift */; };
 		9BD5A2E92581AE1C00B5D320 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5A2E72581AE1C00B5D320 /* Main.storyboard */; };
-		9BD5A2EC2581AE1C00B5D320 /* revision_paper_01.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A2EA2581AE1C00B5D320 /* revision_paper_01.xcdatamodeld */; };
 		9BD5A2EE2581AE1E00B5D320 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5A2ED2581AE1E00B5D320 /* Assets.xcassets */; };
 		9BD5A2F12581AE1E00B5D320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5A2EF2581AE1E00B5D320 /* LaunchScreen.storyboard */; };
 		9BD5A2FA2581B0F000B5D320 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A2F92581B0F000B5D320 /* RecipeTableViewController.swift */; };
 		9BD5A3002581B25B00B5D320 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A2FF2581B25B00B5D320 /* AddRecipeViewController.swift */; };
+		9BD5A30D2581BE5800B5D320 /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A30C2581BE5800B5D320 /* RecipeController.swift */; };
+		9BD5A3122581BFC800B5D320 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A3102581BFC800B5D320 /* Model.xcdatamodeld */; };
+		9BD5A3292581C12200B5D320 /* IngridentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A3282581C12200B5D320 /* IngridentsController.swift */; };
+		9BD5A3322581C21300B5D320 /* CDIngredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A32E2581C21300B5D320 /* CDIngredient+CoreDataClass.swift */; };
+		9BD5A3332581C21300B5D320 /* CDIngredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A32F2581C21300B5D320 /* CDIngredient+CoreDataProperties.swift */; };
+		9BD5A3342581C21300B5D320 /* CDRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A3302581C21300B5D320 /* CDRecipe+CoreDataClass.swift */; };
+		9BD5A3352581C21300B5D320 /* CDRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5A3312581C21300B5D320 /* CDRecipe+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +30,18 @@
 		9BD5A2E32581AE1C00B5D320 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9BD5A2E52581AE1C00B5D320 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9BD5A2E82581AE1C00B5D320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9BD5A2EB2581AE1C00B5D320 /* revision_paper_01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = revision_paper_01.xcdatamodel; sourceTree = "<group>"; };
 		9BD5A2ED2581AE1E00B5D320 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BD5A2F02581AE1E00B5D320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BD5A2F22581AE1E00B5D320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD5A2F92581B0F000B5D320 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 		9BD5A2FF2581B25B00B5D320 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
+		9BD5A30C2581BE5800B5D320 /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		9BD5A3112581BFC800B5D320 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9BD5A3282581C12200B5D320 /* IngridentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridentsController.swift; sourceTree = "<group>"; };
+		9BD5A32E2581C21300B5D320 /* CDIngredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDIngredient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9BD5A32F2581C21300B5D320 /* CDIngredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDIngredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9BD5A3302581C21300B5D320 /* CDRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9BD5A3312581C21300B5D320 /* CDRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +75,14 @@
 			isa = PBXGroup;
 			children = (
 				9BD5A2E72581AE1C00B5D320 /* Main.storyboard */,
+				9BD5A30B2581BD9500B5D320 /* Model */,
 				9BD5A2FC2581B0FD00B5D320 /* Controller */,
 				9BD5A2E12581AE1C00B5D320 /* AppDelegate.swift */,
 				9BD5A2E32581AE1C00B5D320 /* SceneDelegate.swift */,
 				9BD5A2ED2581AE1E00B5D320 /* Assets.xcassets */,
 				9BD5A2EF2581AE1E00B5D320 /* LaunchScreen.storyboard */,
 				9BD5A2F22581AE1E00B5D320 /* Info.plist */,
-				9BD5A2EA2581AE1C00B5D320 /* revision_paper_01.xcdatamodeld */,
+				9BD5A3102581BFC800B5D320 /* Model.xcdatamodeld */,
 			);
 			path = revision_paper_01;
 			sourceTree = "<group>";
@@ -80,8 +93,21 @@
 				9BD5A2E52581AE1C00B5D320 /* ViewController.swift */,
 				9BD5A2F92581B0F000B5D320 /* RecipeTableViewController.swift */,
 				9BD5A2FF2581B25B00B5D320 /* AddRecipeViewController.swift */,
+				9BD5A30C2581BE5800B5D320 /* RecipeController.swift */,
+				9BD5A3282581C12200B5D320 /* IngridentsController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9BD5A30B2581BD9500B5D320 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5A32E2581C21300B5D320 /* CDIngredient+CoreDataClass.swift */,
+				9BD5A32F2581C21300B5D320 /* CDIngredient+CoreDataProperties.swift */,
+				9BD5A3302581C21300B5D320 /* CDRecipe+CoreDataClass.swift */,
+				9BD5A3312581C21300B5D320 /* CDRecipe+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,10 +181,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD5A3002581B25B00B5D320 /* AddRecipeViewController.swift in Sources */,
-				9BD5A2EC2581AE1C00B5D320 /* revision_paper_01.xcdatamodeld in Sources */,
 				9BD5A2E62581AE1C00B5D320 /* ViewController.swift in Sources */,
+				9BD5A3292581C12200B5D320 /* IngridentsController.swift in Sources */,
+				9BD5A3332581C21300B5D320 /* CDIngredient+CoreDataProperties.swift in Sources */,
 				9BD5A2E22581AE1C00B5D320 /* AppDelegate.swift in Sources */,
+				9BD5A3122581BFC800B5D320 /* Model.xcdatamodeld in Sources */,
+				9BD5A3352581C21300B5D320 /* CDRecipe+CoreDataProperties.swift in Sources */,
+				9BD5A3342581C21300B5D320 /* CDRecipe+CoreDataClass.swift in Sources */,
 				9BD5A2E42581AE1C00B5D320 /* SceneDelegate.swift in Sources */,
+				9BD5A3322581C21300B5D320 /* CDIngredient+CoreDataClass.swift in Sources */,
+				9BD5A30D2581BE5800B5D320 /* RecipeController.swift in Sources */,
 				9BD5A2FA2581B0F000B5D320 /* RecipeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,13 +395,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9BD5A2EA2581AE1C00B5D320 /* revision_paper_01.xcdatamodeld */ = {
+		9BD5A3102581BFC800B5D320 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9BD5A2EB2581AE1C00B5D320 /* revision_paper_01.xcdatamodel */,
+				9BD5A3112581BFC800B5D320 /* Model.xcdatamodel */,
 			);
-			currentVersion = 9BD5A2EB2581AE1C00B5D320 /* revision_paper_01.xcdatamodel */;
-			path = revision_paper_01.xcdatamodeld;
+			currentVersion = 9BD5A3112581BFC800B5D320 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

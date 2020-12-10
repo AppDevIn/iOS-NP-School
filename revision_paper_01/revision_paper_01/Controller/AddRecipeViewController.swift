@@ -12,6 +12,8 @@ class AddRecipeViewController: UIViewController {
     @IBOutlet weak var txt_title: UITextField!
     @IBOutlet weak var txt_time: UITextField!
     
+    var ingridents:IngridentsController = IngridentsController()
+    var recipe:RecipeController = RecipeController()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,6 +23,7 @@ class AddRecipeViewController: UIViewController {
         var count:Int = 0
         if let time = txt_time.text, let title = txt_title.text{
             if !time.isEmpty && !title.isEmpty {
+                let r:CDRecipe =  recipe.addRecipe(name: title, time: time)
                 for index in 1...5 {
                     //Get One By One with Tag
                     if let txtField1 = self.view.viewWithTag(index) as? UITextField {
@@ -28,6 +31,7 @@ class AddRecipeViewController: UIViewController {
                         if let text = txtField1.text{
                             if !text.isEmpty {
                                 print(txtField1.text!)
+                                ingridents.addIngridents(name: txtField1.text!, recipe: r)
                                 count += 1
                             }
                         }
