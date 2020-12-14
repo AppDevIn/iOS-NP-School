@@ -44,17 +44,12 @@ class FriendController {
        
         friend.addToMessages(message)
         
-        
         do {
             
             try context.save()
         } catch  {
             print(error)
         }
-        
-
-        
-        
         
 
     }

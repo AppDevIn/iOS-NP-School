@@ -50,13 +50,13 @@ class ContactController {
         
         do {
             let result = try context.fetch(CDContact.fetchRequest())
-            var contactList:[CDContact] = []
+            var list:[CDContact] = []
             
             for data in result as! [CDContact]{
                 
-                contactList.append(data)
+                list.append(data)
             }
-            items = contactList
+            items = list
             return items
             
         } catch {
