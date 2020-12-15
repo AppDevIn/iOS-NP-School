@@ -9,23 +9,35 @@
 /* Begin PBXBuildFile section */
 		9B5EA94525879D3C003CCF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA94425879D3C003CCF51 /* AppDelegate.swift */; };
 		9B5EA94725879D3C003CCF51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA94625879D3C003CCF51 /* SceneDelegate.swift */; };
-		9B5EA94925879D3C003CCF51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA94825879D3C003CCF51 /* ViewController.swift */; };
+		9B5EA94925879D3C003CCF51 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA94825879D3C003CCF51 /* WalletViewController.swift */; };
 		9B5EA94C25879D3C003CCF51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EA94A25879D3C003CCF51 /* Main.storyboard */; };
 		9B5EA94F25879D3C003CCF51 /* DigitalWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA94D25879D3C003CCF51 /* DigitalWallet.xcdatamodeld */; };
 		9B5EA95125879D3D003CCF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EA95025879D3D003CCF51 /* Assets.xcassets */; };
 		9B5EA95425879D3D003CCF51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EA95225879D3D003CCF51 /* LaunchScreen.storyboard */; };
+		9B5EA9622587AE50003CCF51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA9602587AE50003CCF51 /* Model.xcdatamodeld */; };
+		9B5EA9672587B4BC003CCF51 /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA9662587B4BC003CCF51 /* userController.swift */; };
+		9B5EA9702587B51F003CCF51 /* CoreDataUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA96C2587B51F003CCF51 /* CoreDataUser+CoreDataClass.swift */; };
+		9B5EA9712587B51F003CCF51 /* CoreDataUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA96D2587B51F003CCF51 /* CoreDataUser+CoreDataProperties.swift */; };
+		9B5EA9722587B51F003CCF51 /* CoreDataTransaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA96E2587B51F003CCF51 /* CoreDataTransaction+CoreDataClass.swift */; };
+		9B5EA9732587B51F003CCF51 /* CoreDataTransaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EA96F2587B51F003CCF51 /* CoreDataTransaction+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9B5EA94125879D3C003CCF51 /* DigitalWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5EA94425879D3C003CCF51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B5EA94625879D3C003CCF51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9B5EA94825879D3C003CCF51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B5EA94825879D3C003CCF51 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		9B5EA94B25879D3C003CCF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B5EA94E25879D3C003CCF51 /* DigitalWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DigitalWallet.xcdatamodel; sourceTree = "<group>"; };
 		9B5EA95025879D3D003CCF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B5EA95325879D3D003CCF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B5EA95525879D3D003CCF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B5EA9612587AE50003CCF51 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9B5EA9662587B4BC003CCF51 /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
+		9B5EA96C2587B51F003CCF51 /* CoreDataUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5EA96D2587B51F003CCF51 /* CoreDataUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5EA96E2587B51F003CCF51 /* CoreDataTransaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataTransaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5EA96F2587B51F003CCF51 /* CoreDataTransaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataTransaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +54,10 @@
 		9B5EA93825879D3C003CCF51 = {
 			isa = PBXGroup;
 			children = (
+				9B5EA96C2587B51F003CCF51 /* CoreDataUser+CoreDataClass.swift */,
+				9B5EA96D2587B51F003CCF51 /* CoreDataUser+CoreDataProperties.swift */,
+				9B5EA96E2587B51F003CCF51 /* CoreDataTransaction+CoreDataClass.swift */,
+				9B5EA96F2587B51F003CCF51 /* CoreDataTransaction+CoreDataProperties.swift */,
 				9B5EA94325879D3C003CCF51 /* DigitalWallet */,
 				9B5EA94225879D3C003CCF51 /* Products */,
 			);
@@ -58,16 +74,34 @@
 		9B5EA94325879D3C003CCF51 /* DigitalWallet */ = {
 			isa = PBXGroup;
 			children = (
+				9B5EA96B2587B4FD003CCF51 /* Controller */,
+				9B5EA96A2587B4F8003CCF51 /* Model */,
 				9B5EA94425879D3C003CCF51 /* AppDelegate.swift */,
 				9B5EA94625879D3C003CCF51 /* SceneDelegate.swift */,
-				9B5EA94825879D3C003CCF51 /* ViewController.swift */,
 				9B5EA94A25879D3C003CCF51 /* Main.storyboard */,
 				9B5EA95025879D3D003CCF51 /* Assets.xcassets */,
 				9B5EA95225879D3D003CCF51 /* LaunchScreen.storyboard */,
 				9B5EA95525879D3D003CCF51 /* Info.plist */,
 				9B5EA94D25879D3C003CCF51 /* DigitalWallet.xcdatamodeld */,
+				9B5EA9602587AE50003CCF51 /* Model.xcdatamodeld */,
 			);
 			path = DigitalWallet;
+			sourceTree = "<group>";
+		};
+		9B5EA96A2587B4F8003CCF51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B5EA96B2587B4FD003CCF51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B5EA94825879D3C003CCF51 /* WalletViewController.swift */,
+				9B5EA9662587B4BC003CCF51 /* userController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B5EA94925879D3C003CCF51 /* ViewController.swift in Sources */,
+				9B5EA9672587B4BC003CCF51 /* userController.swift in Sources */,
+				9B5EA9732587B51F003CCF51 /* CoreDataTransaction+CoreDataProperties.swift in Sources */,
+				9B5EA94925879D3C003CCF51 /* WalletViewController.swift in Sources */,
 				9B5EA94F25879D3C003CCF51 /* DigitalWallet.xcdatamodeld in Sources */,
+				9B5EA9702587B51F003CCF51 /* CoreDataUser+CoreDataClass.swift in Sources */,
+				9B5EA9622587AE50003CCF51 /* Model.xcdatamodeld in Sources */,
+				9B5EA9722587B51F003CCF51 /* CoreDataTransaction+CoreDataClass.swift in Sources */,
+				9B5EA9712587B51F003CCF51 /* CoreDataUser+CoreDataProperties.swift in Sources */,
 				9B5EA94525879D3C003CCF51 /* AppDelegate.swift in Sources */,
 				9B5EA94725879D3C003CCF51 /* SceneDelegate.swift in Sources */,
 			);
@@ -354,6 +394,16 @@
 			);
 			currentVersion = 9B5EA94E25879D3C003CCF51 /* DigitalWallet.xcdatamodel */;
 			path = DigitalWallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		9B5EA9602587AE50003CCF51 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9B5EA9612587AE50003CCF51 /* Model.xcdatamodel */,
+			);
+			currentVersion = 9B5EA9612587AE50003CCF51 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
