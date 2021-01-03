@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="1075" y="761"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Controller-->
         <scene sceneID="4wB-li-Mvm">
             <objects>
-                <viewController id="8OE-s5-EUb" sceneMemberID="viewController">
+                <viewController id="8OE-s5-EUb" customClass="MapController" customModule="Telegramme" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="75p-lu-fro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,6 +192,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GEu-GI-0ku"/>
+                    <connections>
+                        <outlet property="mapView" destination="78n-5g-ONX" id="3Nx-oM-BVj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bV-ih-VFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
