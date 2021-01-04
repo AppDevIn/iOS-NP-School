@@ -8,11 +8,13 @@
 import Foundation
 import UIKit
 import MapKit
+import CoreLocation
 
 
-class MapController : UIViewController {
+class MapController : UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         print("Map view loaded")
@@ -20,11 +22,11 @@ class MapController : UIViewController {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString("535 Clementi Road Singapore 599489") { (p, e) in
             let lat = String(
-                    format: "Lat: %3.12f", p![0].location!.coordinate.latitude)
-                let long = String(
-                    format: "Long: %3.12f", p![0].location!.coordinate.longitude)
-
-                print("\(lat), \(long)")
+                format: "Lat: %3.12f", p![0].location!.coordinate.latitude)
+            let long = String(
+                format: "Long: %3.12f", p![0].location!.coordinate.longitude)
+            
+            print("\(lat), \(long)")
             
             //Set the location needed to be annoated
             let location = p![0].location!.coordinate
@@ -41,10 +43,38 @@ class MapController : UIViewController {
             annotation.title = "Ngee Ann Polytechnic"
             annotation.subtitle = "Schoo of ICT"
             self.mapView.addAnnotation(annotation)
-
+            
+            
         }
         
  
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let locationDelegate = LocationDelegate()
+        var latestLocation: CLLocation? = nil
         
+        
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            print("Service enabled")
+            
+            
+            locationManager.startUpdatingLocation()
+            
+        } else {
+            print("Error")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location ran")
+        guard let currentLocation = locations.last else { return }
+//        locationCallback?(currentLocation)
+        
+        print("locations = \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
     }
 }
+
