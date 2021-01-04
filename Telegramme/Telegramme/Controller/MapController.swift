@@ -21,43 +21,17 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString("535 Clementi Road Singapore 599489") { (p, e) in
-            let lat = String(
-                format: "Lat: %3.12f", p![0].location!.coordinate.latitude)
-            let long = String(
-                format: "Long: %3.12f", p![0].location!.coordinate.longitude)
-            
-            print("\(lat), \(long)")
-            
-            //Set the location needed to be annoated
-            let location = p![0].location!.coordinate
-            
-            //Zoom into that location
-            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-            let region = MKCoordinateRegion(center: location, span: span)
-            self.mapView.setRegion(region, animated: true)
-            
-            // Set the annoate
-            let annotation = MKPointAnnotation()
-            
-            annotation.coordinate = location
-            annotation.title = "Ngee Ann Polytechnic"
-            annotation.subtitle = "Schoo of ICT"
-            self.mapView.addAnnotation(annotation)
-            
-            
+            self.render(p![0].location!, "Ngee Ann Polytechnic", "Schoo of ICT", false)
         }
         
- 
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let locationDelegate = LocationDelegate()
-        var latestLocation: CLLocation? = nil
-        
-        
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
         if CLLocationManager.locationServicesEnabled() {
             print("Service enabled")
             
@@ -70,11 +44,39 @@ class MapController : UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Location ran")
-        guard let currentLocation = locations.last else { return }
-//        locationCallback?(currentLocation)
         
-        print("locations = \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
+        if let location = locations.last {
+            print("locations = \(location.coordinate.latitude) \(location.coordinate.longitude)")
+            
+            render(location, "Me", nil, true)
+        }
+        
+        
+        
+    }
+    
+    func render(_ location:CLLocation, _ title:String, _ subtitle:String?, _ zoomIn:Bool){
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        if zoomIn{
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            
+            mapView.setRegion(region, animated: true)
+        }
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordinate
+        annotation.title = title
+        
+        if let st = subtitle {
+            annotation.subtitle = st
+        }
+        
+        self.mapView.addAnnotation(annotation)
+        
     }
 }
 
