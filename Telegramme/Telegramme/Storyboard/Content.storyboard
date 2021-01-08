@@ -101,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvb-OI-g6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
+            <point key="canvasLocation" x="1048" y="-8"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1YB-JT-r98">
@@ -139,7 +139,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zc5-R4-xWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="760.71428571428567"/>
+            <point key="canvasLocation" x="138" y="768"/>
         </scene>
         <!--Contact List-->
         <scene sceneID="cN6-cX-2Xq">
@@ -168,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUT-gX-RDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="761"/>
+            <point key="canvasLocation" x="1074" y="768"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="4wB-li-Mvm">
@@ -179,16 +179,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="78n-5g-ONX">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="20" y="98" width="374" height="663"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-Se-Kvq">
+                                <rect key="frame" x="101" y="772" width="30" height="30"/>
+                                <state key="normal" title="Me"/>
+                                <connections>
+                                    <action selector="clkMe:" destination="8OE-s5-EUb" eventType="touchUpInside" id="I8B-E1-mhT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXm-QP-Zjr">
+                                <rect key="frame" x="252" y="772" width="30" height="30"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <action selector="clkMap:" destination="8OE-s5-EUb" eventType="touchUpInside" id="G63-OO-kux"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y4x-TB-qqb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="78n-5g-ONX" firstAttribute="leading" secondItem="y4x-TB-qqb" secondAttribute="leading" id="hPM-hU-nJ8"/>
-                            <constraint firstItem="78n-5g-ONX" firstAttribute="trailing" secondItem="y4x-TB-qqb" secondAttribute="trailing" id="p3D-nl-eX6"/>
-                            <constraint firstItem="78n-5g-ONX" firstAttribute="top" secondItem="y4x-TB-qqb" secondAttribute="top" id="rmY-oJ-dfL"/>
-                            <constraint firstItem="78n-5g-ONX" firstAttribute="bottom" secondItem="y4x-TB-qqb" secondAttribute="bottom" id="vxw-zY-MRs"/>
+                            <constraint firstItem="wfL-Se-Kvq" firstAttribute="top" secondItem="78n-5g-ONX" secondAttribute="bottom" constant="11" id="2Jq-Eg-2y4"/>
+                            <constraint firstItem="78n-5g-ONX" firstAttribute="top" secondItem="y4x-TB-qqb" secondAttribute="top" constant="10" id="452-mw-zF9"/>
+                            <constraint firstItem="wfL-Se-Kvq" firstAttribute="leading" secondItem="y4x-TB-qqb" secondAttribute="leading" constant="101" id="8NI-Ic-9eP"/>
+                            <constraint firstItem="y4x-TB-qqb" firstAttribute="trailing" secondItem="78n-5g-ONX" secondAttribute="trailing" constant="20" id="Gxc-mH-7DV"/>
+                            <constraint firstItem="y4x-TB-qqb" firstAttribute="bottom" secondItem="78n-5g-ONX" secondAttribute="bottom" constant="52" id="Ses-89-KoJ"/>
+                            <constraint firstItem="y4x-TB-qqb" firstAttribute="trailing" secondItem="XXm-QP-Zjr" secondAttribute="trailing" constant="132" id="U99-dw-ffk"/>
+                            <constraint firstItem="y4x-TB-qqb" firstAttribute="bottom" secondItem="wfL-Se-Kvq" secondAttribute="bottom" constant="11" id="VJR-Oy-RvG"/>
+                            <constraint firstItem="78n-5g-ONX" firstAttribute="leading" secondItem="y4x-TB-qqb" secondAttribute="leading" constant="20" id="VK6-po-yJQ"/>
+                            <constraint firstItem="y4x-TB-qqb" firstAttribute="bottom" secondItem="XXm-QP-Zjr" secondAttribute="bottom" constant="11" id="aV3-RI-chP"/>
+                            <constraint firstItem="XXm-QP-Zjr" firstAttribute="top" secondItem="78n-5g-ONX" secondAttribute="bottom" constant="11" id="oV3-ax-91T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GEu-GI-0ku"/>
@@ -198,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bV-ih-VFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1153.6231884057972" y="1441.7410714285713"/>
+            <point key="canvasLocation" x="1048" y="1570"/>
         </scene>
         <!--New Contact-->
         <scene sceneID="b5F-jI-p8v">
@@ -217,7 +237,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apk-JQ-ZPu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+            <point key="canvasLocation" x="138" y="-8"/>
         </scene>
         <!--Map-->
         <scene sceneID="LPA-IV-bMe">
@@ -236,7 +256,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltH-8T-A9j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="1484"/>
+            <point key="canvasLocation" x="138" y="1570"/>
         </scene>
     </scenes>
     <resources>
