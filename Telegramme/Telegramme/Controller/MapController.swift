@@ -42,7 +42,6 @@ class MapController : UIViewController, CLLocationManagerDelegate {
             self.latestLocation = location
             self.render(location, "Me", nil, true)
             
-            
         }
         
 
